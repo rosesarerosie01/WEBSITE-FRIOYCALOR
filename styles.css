@@ -196,19 +196,16 @@ html {
 }
 
 .banner {
-	/*width: 1000px;
-	height: 400px;*/
+	width: 1000px;
+	height: 400px;
 	margin: auto;
 	/*background-size: cover; */
 	animation: banner 15s infinite;
-	animation-direction: alternate;
   }
   
   @keyframes banner {
 	0%, 50% {
 	  background-image: url(img/refrigerante.jpg);
-	   background-size: cover;
-	   background-position: center;
 	  opacity: 1;
 	}
 	59%,
