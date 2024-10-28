@@ -181,35 +181,36 @@ html {
 /*               BANNER               */
 /* ********************************** */
 .carousel {
-	position: relative;
-	overflow: hidden;
-	width: 100%;
-	max-width: 1000px; /* Ajusta según tus necesidades */
-	margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    width: 150%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .carousel-container {
-	display: flex;
-	width: 100%;
-	animation: scroll 20s linear infinite;
+    display: flex;
+    width: 100%;
+    animation: scroll 20s linear infinite; /* Incrementa la duración para una animación más lenta */
 }
 
 .carousel-slide {
-	display: flex;
+    display: flex;
 	width: 100%;
 }
 
 .carousel-slide img {
-	width: 25%; /* 100% dividido entre 4 imágenes */
-	height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
-	object-fit: contain; /* Asegura que las imágenes se ajusten sin ser recortadas */
-	margin-right: 10px; /* Espacio entre las imágenes, ajusta según tus necesidades */
+    width: 9%; /* Ajusta si deseas que aparezcan más imágenes a la vez */
+    height: auto;
+    object-fit: contain;
+    margin-right: 10px;
 }
 
 @keyframes scroll {
-	0% { transform: translateX(0); }
-	100% { transform: translateX(-50%); }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Ajusta para recorrer todo el ancho duplicado */
 }
+
 
 /*imagenes botones de inicio */
 .category-residencial {
