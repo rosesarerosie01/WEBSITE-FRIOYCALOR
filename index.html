@@ -2,20 +2,22 @@
 <html lang="en">
 
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0"
+	/>
 	<title>Frio y Calor - Refacciones</title>
 	<link rel="stylesheet" href="styles.css" />
-	<href="https: //stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-	<a href="https://wa.me/528998734576?text=Me%20gustaría%20obtener%20una%20cotizacion" class="whatsapp"
-		target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+	<a href="https://wa.me/528998734576?text=Me%20gustaría%20obtener%20una%20cotizacion" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 	<header>
 		<div class="container-navbar">
 			<nav class="navbar container">
-				<i class="fa-solid fa-bars"></i>
-				<img src="ruta/a/tu/logo.png" width="120" height="120">
+				<i class="fa fa-bars menu-icon"></i>
+				<img src="C:\Users\casti\OneDrive\Documentos\WEBSITE-FRIOYCALOR\img\logo.png" width="120" height="120">
 				<ul class="menu">
 					<li><a href="index.html">Inicio</a></li>
 					<li><a href="productos.html">Productos</a></li>
@@ -25,6 +27,8 @@
 			</nav>
 		</div>
 	</header>
+	<br>
+	<br>
 	<br>
 	<br>
 	<br>
@@ -146,6 +150,12 @@
 	</footer>
 
 	<script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
+	<script>
+		document.querySelector('.menu-icon').addEventListener('click', function() {
+			document.querySelector('.menu').classList.toggle('open');
+		});
+	</script>
+	
 </body>
 
 </html>

@@ -14,7 +14,7 @@
 		<header>
 			<div class="container-navbar">
 				<nav class="navbar container">
-					<i class="fa-solid fa-bars"></i>
+					<i class="fa fa-bars menu-icon"></i>
                     <img src="C:\Users\casti\OneDrive\Documentos\WEBSITE-FRIOYCALOR\img\logo.png" width="120" height="120">
 					<ul class="menu">
 						<li><a href="index.html">Inicio</a></li>
@@ -80,5 +80,10 @@
 			src="https://kit.fontawesome.com/81581fb069.js"
 			crossorigin="anonymous"
 		></script>
+		<script>
+			document.querySelector('.menu-icon').addEventListener('click', function() {
+				document.querySelector('.menu').classList.toggle('open');
+			});
+		</script>
 	</body>
 </html>

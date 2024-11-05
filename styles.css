@@ -114,16 +114,42 @@ html {
 	display: none;
 }
 
-.menu {
-	display: flex;
-	gap: 3rem;
-}
-
 
 .menu li {
 	list-style: none;
  }
+ .menu {
+	display: flex;
+	gap: 15px;
+}
 
+.menu-icon {
+	display: none; /* Oculta el icono en pantallas grandes */
+	cursor: pointer;
+}
+
+@media (max-width: 768px) {
+	.menu {
+		display: none; /* Oculta el menú por defecto en pantallas pequeñas */
+		flex-direction: column;
+		background-color: #ffffff; /* Cambia según el estilo de tu sitio */
+		position: absolute;
+		top: 60px; /* Ajusta según la altura de tu header */
+		right: 10px; /* Espacio desde el borde derecho */
+		width: 98%; /* Ajusta este valor según el ancho deseado */
+		padding: 10px;
+		border-radius: 8px; /* Opcional: agrega un borde redondeado */
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: agrega una sombra */
+	}
+
+	.menu.open {
+		display: flex; /* Muestra el menú cuando está abierto */
+	}
+	
+	.menu-icon {
+		display: block; /* Muestra el icono en pantallas pequeñas */
+	}
+}
 
 
  .whatsapp {
