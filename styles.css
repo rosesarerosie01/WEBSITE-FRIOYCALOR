@@ -37,10 +37,24 @@ html {
 	font-size: 2rem;
 }
 
+.heading-3 {
+	text-align: center;
+	font-weight: 450;
+	font-size: 3rem;
+}
+
 .p-2 {
 	text-align: center;
 	font-weight: 100;
 	font-size: 1.5rem;
+}
+
+.p-3 {
+	text-align: center;
+	font-weight: 150;
+	font-size: 2rem;
+	margin-right: 80px;
+	margin-left: 80px;
 }
 
 .p-info-ja{
@@ -113,7 +127,7 @@ html {
 .navbar .fa-bars {
 	display: none;
 }
-
+/* menu emergente hamburguesa */
 
 .menu li {
 	list-style: none;
@@ -132,14 +146,14 @@ html {
 	.menu {
 		display: none; /* Oculta el menú por defecto en pantallas pequeñas */
 		flex-direction: column;
-		background-color: #ffffff; /* Cambia según el estilo de tu sitio */
+		background-color: #ffffff;
 		position: absolute;
-		top: 60px; /* Ajusta según la altura de tu header */
+		top: 60px; 
 		right: 10px; /* Espacio desde el borde derecho */
-		width: 98%; /* Ajusta este valor según el ancho deseado */
+		width: 98%; 
 		padding: 10px;
-		border-radius: 8px; /* Opcional: agrega un borde redondeado */
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: agrega una sombra */
+		border-radius: 8px; /* agrega un borde redondeado */
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* agrega una sombra */
 	}
 
 	.menu.open {
@@ -150,7 +164,7 @@ html {
 		display: block; /* Muestra el icono en pantallas pequeñas */
 	}
 }
-
+/* fin menu hamburesa */
 
  .whatsapp {
 	position:fixed;
@@ -247,6 +261,7 @@ html {
     background-position: bottom;
     background-repeat: no-repeat;
     transition: transform 0.3s ease-in-out; /* Animación suave */
+	cursor: pointer;
 }
 
 .category-residencial::before {
@@ -292,6 +307,7 @@ button:hover {
     background-position: center;
     background-repeat: no-repeat;
     transition: transform 0.3s ease-in-out; /* Animación suave */
+	cursor: pointer;
 }
 
 .category-comercial::before {
@@ -338,6 +354,7 @@ button:hover {
     background-position: center;
     background-repeat: no-repeat;
     transition: transform 0.3s ease-in-out; /* Animación suave */
+	cursor: pointer;
 }
 
 .category-industrial::before {
@@ -500,6 +517,10 @@ button:hover {
 	gap: 2rem;
 }
 
+a {  /*quitar hipervinculo de botones de index */
+    text-decoration: none;
+}
+
 .category-residencial {
 	background-image: linear-gradient(#00000080, #00000080),
 		url('img/residencial.jpg');
@@ -551,6 +572,20 @@ button:hover {
 .card-category span:hover {
 	color: #172ad6;
 }
+ /*imagenes responsivas de servicios */
+.image-container {
+    display: flex;
+    justify-content: center;  /* Centra horizontalmente */
+    align-items: center;      /* Centra verticalmente */
+    
+}
+
+/* Estilo para la imagen */
+.responsive-img {
+    width: 40%;  /* Ajusta el tamaño de la imagen */
+    height: auto; /* Mantiene la proporción original de la imagen */
+}
+
 
 /* ********************************** */
 /*             PRODUCTS               */
