@@ -113,9 +113,9 @@ html {
 
 
 
-/* ************* NAVBAR ************* */
 .container-navbar {
 	background-color: #d5e6eb;
+	position: relative; /* Permite que los elementos absolutos se ubiquen en relación con este contenedor */
 }
 
 .navbar {
@@ -138,33 +138,54 @@ html {
 	gap: 15px;
 }
 
+
 .menu-icon {
 	display: none; /* Oculta el icono en pantallas grandes */
 	cursor: pointer;
 }
 
 @media (max-width: 768px) {
-	.menu {
-		display: none; /* Oculta el menú por defecto en pantallas pequeñas */
-		flex-direction: column;
-		background-color: #ffffff;
-		position: absolute;
-		top: 60px; 
-		right: 10px; /* Espacio desde el borde derecho */
-		width: 98%; 
-		padding: 10px;
-		border-radius: 8px; /* agrega un borde redondeado */
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* agrega una sombra */
-	}
+    .menu {
+        display: none; /* Oculta el menú por defecto en pantallas pequeñas */
+        flex-direction: column;
+        background-color: #d5e6eb;
+        position: fixed; /* Fijo para cubrir toda la altura */
+        top: 0;
+        left: 0;
+        width: 70%; /* Ocupa el 80% del ancho de la pantalla */
+        height: 100vh; /* Ocupa toda la altura de la pantalla */
+        padding-top: 60px; /* Espacio para evitar superposición con el icono */
+        z-index: 1000; /* Asegura que esté al frente */
+        
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2); /* Sombra en el borde derecho */
+    }
 
-	.menu.open {
-		display: flex; /* Muestra el menú cuando está abierto */
-	}
-	
-	.menu-icon {
-		display: block; /* Muestra el icono en pantallas pequeñas */
-	}
+    .menu.open {
+        display: flex; /* Muestra el menú cuando está abierto */
+    }
+    
+    .menu li {
+        margin: 20px 0; /* Espacio entre los elementos del menú */
+        text-align: center;
+    }
 }
+
+.menu-overlay {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    z-index: 1000; /* Justo debajo del icono del menú */
+}
+
+.menu-overlay.open {
+    display: block; /* Muestra el overlay cuando el menú está abierto */
+}
+
+
 /* fin menu hamburesa */
 
  .whatsapp {

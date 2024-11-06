@@ -18,6 +18,7 @@
 			<nav class="navbar container">
 				<i class="fa fa-bars menu-icon"></i>
 				<img src="ruta/a/tu/logo.png" width="120" height="120">
+				<div class="menu-overlay"></div> 
 				<ul class="menu">
 					<li><a href="index.html">Inicio</a></li>
 					<li><a href="productos.html">Productos</a></li>
@@ -157,9 +158,20 @@
 
 	<script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
 	<script>
-		document.querySelector('.menu-icon').addEventListener('click', function() {
-			document.querySelector('.menu').classList.toggle('open');
-		});
+		const menuIcon = document.querySelector('.menu-icon');
+const menu = document.querySelector('.menu');
+const overlay = document.querySelector('.menu-overlay');
+
+// Función para alternar el menú y la superposición
+function toggleMenu() {
+    menu.classList.toggle('open');
+    overlay.classList.toggle('open');
+}
+
+// Cierra el menú cuando se hace clic en el icono o en el overlay
+menuIcon.addEventListener('click', toggleMenu);
+overlay.addEventListener('click', toggleMenu);
+
 	</script>
 	
 </body>
