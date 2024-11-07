@@ -9,6 +9,7 @@
 html {
 	font-size: 62.5%;
 	font-family: 'Poppins', sans-serif;
+	scroll-behavior: smooth;
 }
 
 * {
@@ -37,10 +38,24 @@ html {
 	font-size: 2rem;
 }
 
+.heading-3 {
+	text-align: center;
+	font-weight: 450;
+	font-size: 3rem;
+}
+
 .p-2 {
 	text-align: center;
 	font-weight: 100;
 	font-size: 1.5rem;
+}
+
+.p-3 {
+	text-align: center;
+	font-weight: 150;
+	font-size: 2rem;
+	margin-right: 80px;
+	margin-left: 80px;
 }
 
 .p-info-ja{
@@ -98,9 +113,9 @@ html {
 
 
 
-/* ************* NAVBAR ************* */
 .container-navbar {
 	background-color: #d5e6eb;
+	position: relative; /* Permite que los elementos absolutos se ubiquen en relación con este contenedor */
 }
 
 .navbar {
@@ -113,18 +128,65 @@ html {
 .navbar .fa-bars {
 	display: none;
 }
-
-.menu {
-	display: flex;
-	gap: 3rem;
-}
-
+/* menu emergente hamburguesa */
 
 .menu li {
 	list-style: none;
  }
+ .menu {
+	display: flex;
+	gap: 15px;
+}
 
 
+.menu-icon {
+	display: none; /* Oculta el icono en pantallas grandes */
+	cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none; /* Oculta el menú por defecto en pantallas pequeñas */
+        flex-direction: column;
+        background-color: #d5e6eb;
+        position: fixed; /* Fijo para cubrir toda la altura */
+        top: 0;
+        left: 0;
+        width: 70%; /* Ocupa el 80% del ancho de la pantalla */
+        height: 100vh; /* Ocupa toda la altura de la pantalla */
+        padding-top: 60px; /* Espacio para evitar superposición con el icono */
+        z-index: 1000; /* Asegura que esté al frente */
+        
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2); /* Sombra en el borde derecho */
+    }
+
+    .menu.open {
+        display: flex; /* Muestra el menú cuando está abierto */
+    }
+    
+    .menu li {
+        margin: 20px 0; /* Espacio entre los elementos del menú */
+        text-align: center;
+    }
+}
+
+.menu-overlay {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    z-index: 1000; /* Justo debajo del icono del menú */
+}
+
+.menu-overlay.open {
+    display: block; /* Muestra el overlay cuando el menú está abierto */
+}
+
+
+/* fin menu hamburesa */
 
  .whatsapp {
 	position:fixed;
@@ -181,35 +243,36 @@ html {
 /*               BANNER               */
 /* ********************************** */
 .carousel {
-	position: relative;
-	overflow: hidden;
-	width: 100%;
-	max-width: 1000px; /* Ajusta según tus necesidades */
-	margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    width: 150%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .carousel-container {
-	display: flex;
-	width: 100%;
-	animation: scroll 20s linear infinite;
+    display: flex;
+    width: 100%;
+    animation: scroll 20s linear infinite; /* Incrementa la duración para una animación más lenta */
 }
 
 .carousel-slide {
-	display: flex;
+    display: flex;
 	width: 100%;
 }
 
 .carousel-slide img {
-	width: 25%; /* 100% dividido entre 4 imágenes */
-	height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
-	object-fit: contain; /* Asegura que las imágenes se ajusten sin ser recortadas */
-	margin-right: 10px; /* Espacio entre las imágenes, ajusta según tus necesidades */
+    width: 9%; /* Ajusta si deseas que aparezcan más imágenes a la vez */
+    height: auto;
+    object-fit: contain;
+    margin-right: 10px;
 }
 
 @keyframes scroll {
-	0% { transform: translateX(0); }
-	100% { transform: translateX(-50%); }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Ajusta para recorrer todo el ancho duplicado */
 }
+
 
 /*imagenes botones de inicio */
 .category-residencial {
@@ -220,6 +283,7 @@ html {
     background-position: bottom;
     background-repeat: no-repeat;
     transition: transform 0.3s ease-in-out; /* Animación suave */
+	cursor: pointer;
 }
 
 .category-residencial::before {
@@ -265,6 +329,7 @@ button:hover {
     background-position: center;
     background-repeat: no-repeat;
     transition: transform 0.3s ease-in-out; /* Animación suave */
+	cursor: pointer;
 }
 
 .category-comercial::before {
@@ -311,6 +376,7 @@ button:hover {
     background-position: center;
     background-repeat: no-repeat;
     transition: transform 0.3s ease-in-out; /* Animación suave */
+	cursor: pointer;
 }
 
 .category-industrial::before {
@@ -473,6 +539,10 @@ button:hover {
 	gap: 2rem;
 }
 
+a {  /*quitar hipervinculo de botones de index */
+    text-decoration: none;
+}
+
 .category-residencial {
 	background-image: linear-gradient(#00000080, #00000080),
 		url('img/residencial.jpg');
@@ -524,6 +594,20 @@ button:hover {
 .card-category span:hover {
 	color: #172ad6;
 }
+ /*imagenes responsivas de servicios */
+.image-container {
+    display: flex;
+    justify-content: center;  /* Centra horizontalmente */
+    align-items: center;      /* Centra verticalmente */
+    
+}
+
+/* Estilo para la imagen */
+.responsive-img {
+    width: 40%;  /* Ajusta el tamaño de la imagen */
+    height: auto; /* Mantiene la proporción original de la imagen */
+}
+
 
 /* ********************************** */
 /*             PRODUCTS               */
@@ -568,6 +652,51 @@ button:hover {
 	background-repeat: no-repeat;
 }
 
+/* inicio img design*/
+.category-equipo-aire-acondicionado {
+    position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+    overflow: hidden; /* Asegura que el pseudo-elemento no se desborde */
+    background-image: linear-gradient(#00000080, #00000080), url('img/equipo-aire-acondicionado.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease-in-out; /* Animación suave */
+}
+
+.category-equipo-aire-acondicionado::before {
+    content: ''; /* Necesario para el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Hereda el fondo del contenedor */
+    filter: blur(0); /* Sin desenfoque por defecto */
+    transition: filter 0.3s ease-in-out; /* Transición suave en el desenfoque */
+    z-index: -1; /* Envía el pseudo-elemento detrás del contenido */
+}
+
+
+
+.category-equipo-aire-acondicionado:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen un 5% */
+}
+
+button {
+    background-color: #000; /* Ajusta el estilo del botón según sea necesario */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease-in-out; /* Transición en el fondo y tamaño */
+}
+
+button:hover {
+    background-color: #333; /* Cambia el color del fondo al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño del botón al pasar el mouse */
+}
+/*final */
+
 .category-herramienta {
 	background-image: linear-gradient(#00000080, #00000080),
 		url('img/herramienta.png');
@@ -575,6 +704,51 @@ button:hover {
 	background-position: center;
 	background-repeat: no-repeat;
 }
+
+/* inicio img design*/
+.category-herramienta {
+    position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+    overflow: hidden; /* Asegura que el pseudo-elemento no se desborde */
+    background-image: linear-gradient(#00000080, #00000080), url('img/herramienta.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease-in-out; /* Animación suave */
+}
+
+.category-herramienta::before {
+    content: ''; /* Necesario para el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Hereda el fondo del contenedor */
+    filter: blur(0); /* Sin desenfoque por defecto */
+    transition: filter 0.3s ease-in-out; /* Transición suave en el desenfoque */
+    z-index: -1; /* Envía el pseudo-elemento detrás del contenido */
+}
+
+
+
+.category-herramienta:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen un 5% */
+}
+
+button {
+    background-color: #000; /* Ajusta el estilo del botón según sea necesario */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease-in-out; /* Transición en el fondo y tamaño */
+}
+
+button:hover {
+    background-color: #333; /* Cambia el color del fondo al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño del botón al pasar el mouse */
+}
+/*final */
 
 .category-electricidad {
 	background-image: linear-gradient(#00000080, #00000080),
@@ -584,6 +758,52 @@ button:hover {
 	background-repeat: no-repeat;
 }
 
+/* inicio img design*/
+.category-electricidad {
+    position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+    overflow: hidden; /* Asegura que el pseudo-elemento no se desborde */
+    background-image: linear-gradient(#00000080, #00000080), url('img/electricidad.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease-in-out; /* Animación suave */
+}
+
+.category-electricidad::before {
+    content: ''; /* Necesario para el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Hereda el fondo del contenedor */
+    filter: blur(0); /* Sin desenfoque por defecto */
+    transition: filter 0.3s ease-in-out; /* Transición suave en el desenfoque */
+    z-index: -1; /* Envía el pseudo-elemento detrás del contenido */
+}
+
+
+
+.category-electricidad:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen un 5% */
+}
+
+button {
+    background-color: #000; /* Ajusta el estilo del botón según sea necesario */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease-in-out; /* Transición en el fondo y tamaño */
+}
+
+button:hover {
+    background-color: #333; /* Cambia el color del fondo al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño del botón al pasar el mouse */
+}
+/*final */
+
+
 .category-capacitores {
 	background-image: linear-gradient(#00000080, #00000080),
 		url('img/capacitores.jpg');
@@ -591,6 +811,51 @@ button:hover {
 	background-position: bottom;
 	background-repeat: no-repeat;
 }
+
+/* inicio img design*/
+.category-capacitores {
+    position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+    overflow: hidden; /* Asegura que el pseudo-elemento no se desborde */
+    background-image: linear-gradient(#00000080, #00000080), url('img/capacitores.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease-in-out; /* Animación suave */
+}
+
+.category-capacitores::before {
+    content: ''; /* Necesario para el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Hereda el fondo del contenedor */
+    filter: blur(0); /* Sin desenfoque por defecto */
+    transition: filter 0.3s ease-in-out; /* Transición suave en el desenfoque */
+    z-index: -1; /* Envía el pseudo-elemento detrás del contenido */
+}
+
+
+
+.category-capacitores:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen un 5% */
+}
+
+button {
+    background-color: #000; /* Ajusta el estilo del botón según sea necesario */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease-in-out; /* Transición en el fondo y tamaño */
+}
+
+button:hover {
+    background-color: #333; /* Cambia el color del fondo al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño del botón al pasar el mouse */
+}
+/*final */
 
 .category-contactores {
 	background-image: linear-gradient(#00000080, #00000080),
@@ -600,6 +865,52 @@ button:hover {
 	background-repeat: no-repeat;
 }
 
+/* inicio img design*/
+.category-contactores {
+    position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+    overflow: hidden; /* Asegura que el pseudo-elemento no se desborde */
+    background-image: linear-gradient(#00000080, #00000080), url('img/contactores.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease-in-out; /* Animación suave */
+}
+
+.category-contactores::before {
+    content: ''; /* Necesario para el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Hereda el fondo del contenedor */
+    filter: blur(0); /* Sin desenfoque por defecto */
+    transition: filter 0.3s ease-in-out; /* Transición suave en el desenfoque */
+    z-index: -1; /* Envía el pseudo-elemento detrás del contenido */
+}
+
+
+
+.category-contactores:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen un 5% */
+}
+
+button {
+    background-color: #000; /* Ajusta el estilo del botón según sea necesario */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease-in-out; /* Transición en el fondo y tamaño */
+}
+
+button:hover {
+    background-color: #333; /* Cambia el color del fondo al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño del botón al pasar el mouse */
+}
+/*final */
+
+
 .category-relevadores {
 	background-image: linear-gradient(#00000080, #00000080),
 		url('img/relevadores.jpg');
@@ -607,6 +918,50 @@ button:hover {
 	background-position: center;
 	background-repeat: no-repeat;
 }
+
+/* inicio img design*/
+.category-relevadores {
+    position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+    overflow: hidden; /* Asegura que el pseudo-elemento no se desborde */
+    background-image: linear-gradient(#00000080, #00000080), url('img/relevadores.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease-in-out; /* Animación suave */
+}
+
+.category-relevadores::before {
+    content: ''; /* Necesario para el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Hereda el fondo del contenedor */
+    filter: blur(0); /* Sin desenfoque por defecto */
+    transition: filter 0.3s ease-in-out; /* Transición suave en el desenfoque */
+    z-index: -1; /* Envía el pseudo-elemento detrás del contenido */
+}
+
+.category-relevadores:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen un 5% */
+}
+
+button {
+    background-color: #000; /* Ajusta el estilo del botón según sea necesario */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease-in-out; /* Transición en el fondo y tamaño */
+}
+
+button:hover {
+    background-color: #333; /* Cambia el color del fondo al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño del botón al pasar el mouse */
+}
+/*final */
+
 
 .category-cobre {
 	background-image: linear-gradient(#00000080, #00000080),
@@ -616,6 +971,49 @@ button:hover {
 	background-repeat: no-repeat;
 }
 
+/* inicio img design*/
+.category-cobre {
+    position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+    overflow: hidden; /* Asegura que el pseudo-elemento no se desborde */
+    background-image: linear-gradient(#00000080, #00000080), url('img/cobre.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease-in-out; /* Animación suave */
+}
+
+.category-cobre::before {
+    content: ''; /* Necesario para el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Hereda el fondo del contenedor */
+    filter: blur(0); /* Sin desenfoque por defecto */
+    transition: filter 0.3s ease-in-out; /* Transición suave en el desenfoque */
+    z-index: -1; /* Envía el pseudo-elemento detrás del contenido */
+}
+
+.category-cobre:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen un 5% */
+}
+
+button {
+    background-color: #000; /* Ajusta el estilo del botón según sea necesario */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease-in-out; /* Transición en el fondo y tamaño */
+}
+
+button:hover {
+    background-color: #333; /* Cambia el color del fondo al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño del botón al pasar el mouse */
+}
+/*final */
+
 .category-limpiadores {
 	background-image: linear-gradient(#00000080, #00000080),
 		url('img/limpiadores.jpg');
@@ -624,6 +1022,49 @@ button:hover {
 	background-repeat: no-repeat;
 }
 
+/* inicio img design*/
+.category-limpiadores {
+    position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+    overflow: hidden; /* Asegura que el pseudo-elemento no se desborde */
+    background-image: linear-gradient(#00000080, #00000080), url('img/limpiadores.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease-in-out; /* Animación suave */
+}
+
+.category-limpiadores::before {
+    content: ''; /* Necesario para el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Hereda el fondo del contenedor */
+    filter: blur(0); /* Sin desenfoque por defecto */
+    transition: filter 0.3s ease-in-out; /* Transición suave en el desenfoque */
+    z-index: -1; /* Envía el pseudo-elemento detrás del contenido */
+}
+
+.category-limpiadores:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen un 5% */
+}
+
+button {
+    background-color: #000; /* Ajusta el estilo del botón según sea necesario */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease-in-out; /* Transición en el fondo y tamaño */
+}
+
+button:hover {
+    background-color: #333; /* Cambia el color del fondo al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño del botón al pasar el mouse */
+}
+/*final */
+
 .category-soldadura {
 	background-image: linear-gradient(#00000080, #00000080),
 		url('img/soldadura.jpg');
@@ -631,6 +1072,49 @@ button:hover {
 	background-position: center;
 	background-repeat: no-repeat;
 }
+
+/* inicio img design*/
+.category-soldadura {
+    position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+    overflow: hidden; /* Asegura que el pseudo-elemento no se desborde */
+    background-image: linear-gradient(#00000080, #00000080), url('img/soldadura.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease-in-out; /* Animación suave */
+}
+
+.category-soldadura::before {
+    content: ''; /* Necesario para el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Hereda el fondo del contenedor */
+    filter: blur(0); /* Sin desenfoque por defecto */
+    transition: filter 0.3s ease-in-out; /* Transición suave en el desenfoque */
+    z-index: -1; /* Envía el pseudo-elemento detrás del contenido */
+}
+
+.category-soldadura:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen un 5% */
+}
+
+button {
+    background-color: #000; /* Ajusta el estilo del botón según sea necesario */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease-in-out; /* Transición en el fondo y tamaño */
+}
+
+button:hover {
+    background-color: #333; /* Cambia el color del fondo al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño del botón al pasar el mouse */
+}
+/*final */
 
 .card-category p {
 	font-size: 2.5rem;
