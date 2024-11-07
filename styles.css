@@ -695,7 +695,7 @@ button:hover {
 
 .category-granjas {
 	background-image: linear-gradient(#00000080, #00000080),
-		url('img/comercial.jpg');
+		url('img/granjas.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -703,7 +703,7 @@ button:hover {
 
 .category-juarez {
 	background-image: linear-gradient(#00000080, #00000080),
-		url('img/industrial.jpg');
+		url('img/juarez.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
