@@ -73,7 +73,7 @@ html {
 }
 
 .p-info-jua{
-	text-align: left;
+	text-align: right;
 	text-indent: 60px;
 	font-weight: 100;
 	font-size: 1rem;
@@ -1177,6 +1177,49 @@ button:hover {
 	background-repeat: no-repeat;
 }
 
+/* inicio img */
+.category-jarachina {
+    position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+    overflow: hidden; /* Asegura que el pseudo-elemento no se desborde */
+    background-image: linear-gradient(#00000080, #00000080), url('img/jarachina.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease-in-out; /* Animación suave */
+}
+
+.category-jarachina::before {
+    content: ''; /* Necesario para el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Hereda el fondo del contenedor */
+    filter: blur(0); /* Sin desenfoque por defecto */
+    transition: filter 0.3s ease-in-out; /* Transición suave en el desenfoque */
+    z-index: -1; /* Envía el pseudo-elemento detrás del contenido */
+}
+
+.category-jarachina:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen un 5% */
+}
+
+button {
+    background-color: #000; /* Ajusta el estilo del botón según sea necesario */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease-in-out; /* Transición en el fondo y tamaño */
+}
+
+button:hover {
+    background-color: #333; /* Cambia el color del fondo al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño del botón al pasar el mouse */
+}
+/*final */
+
 .category-granjas {
 	background-image: linear-gradient(#00000080, #00000080),
 		url('img/granjas.jpg');
@@ -1185,6 +1228,49 @@ button:hover {
 	background-repeat: no-repeat;
 }
 
+/* inicio img granjas */
+.category-granjas {
+    position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+    overflow: hidden; /* Asegura que el pseudo-elemento no se desborde */
+    background-image: linear-gradient(#00000080, #00000080), url('img/granjas.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease-in-out; /* Animación suave */
+}
+
+.category-granjas::before {
+    content: ''; /* Necesario para el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Hereda el fondo del contenedor */
+    filter: blur(0); /* Sin desenfoque por defecto */
+    transition: filter 0.3s ease-in-out; /* Transición suave en el desenfoque */
+    z-index: -1; /* Envía el pseudo-elemento detrás del contenido */
+}
+
+.category-granjas:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen un 5% */
+}
+
+button {
+    background-color: #000; /* Ajusta el estilo del botón según sea necesario */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease-in-out; /* Transición en el fondo y tamaño */
+}
+
+button:hover {
+    background-color: #333; /* Cambia el color del fondo al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño del botón al pasar el mouse */
+}
+/*final */
+
 .category-juarez {
 	background-image: linear-gradient(#00000080, #00000080),
 		url('img/juarez.jpg');
@@ -1192,6 +1278,49 @@ button:hover {
 	background-position: center;
 	background-repeat: no-repeat;
 }
+
+/* inicio img juarez */
+.category-juarez {
+    position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+    overflow: hidden; /* Asegura que el pseudo-elemento no se desborde */
+    background-image: linear-gradient(#00000080, #00000080), url('img/juarez.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease-in-out; /* Animación suave */
+}
+
+.category-juarez::before {
+    content: ''; /* Necesario para el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Hereda el fondo del contenedor */
+    filter: blur(0); /* Sin desenfoque por defecto */
+    transition: filter 0.3s ease-in-out; /* Transición suave en el desenfoque */
+    z-index: -1; /* Envía el pseudo-elemento detrás del contenido */
+}
+
+.category-juarez:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen un 5% */
+}
+
+button {
+    background-color: #000; /* Ajusta el estilo del botón según sea necesario */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease-in-out; /* Transición en el fondo y tamaño */
+}
+
+button:hover {
+    background-color: #333; /* Cambia el color del fondo al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño del botón al pasar el mouse */
+}
+/*final */
 
 .card-category p {
 	font-size: 2.5rem;
