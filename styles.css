@@ -415,53 +415,58 @@ button:hover {
 }
 
 /*fin*/
-.content-banner {
-	max-width: 90rem;
-	margin: 0 auto;
-	padding: 25rem 0;
+
+/*slider*/
+.slider {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
 }
 
-.banner {
-	width: 1000px;
-	height: 400px;
-	margin: auto;
-	/*background-size: cover; */
-	animation: banner 15s infinite;
-  }
-  
-  @keyframes banner {
-	0%, 50% {
-	  background-image: url(img/refrigerante.jpg);
-	  opacity: 1;
-	}
-	59%,
-	60% {
-	  opacity: 0.5;
-	}
-	69%,
-	70% {
-	  background-image: url(img/compresores.jpg);
-	  opacity: 1;
-	}
-	79%,
-	80% {
-	  opacity: 0.5;
-	}
-	89%,
-	90% {
-	  opacity: 1;
-	  background-image: url(img/motores.jpg);
-	}
-	99% ,
-	80% {
-		opacity: 0.5;
-	  }
-	100% {
-		opacity: 1;
-		background-image: url(img/filtros.jpg);
-	  }
+/* Estilos para las imágenes del slider */
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
 
-  }
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+/* Flechas de navegación */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Flechas cuando están sobre ellas */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
 /* ********************************** */
 /*            MAIN CONTENT            */
 /* ********************************** */
